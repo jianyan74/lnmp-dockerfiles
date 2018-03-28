@@ -8,7 +8,7 @@
 
 相关软件版本：
 - PHP 7.2
-- MySQL 5.7 (root账号:root;密码5eNyjNf,成员账号:rageframe;密码:2589632147) 如何修改?
+- MySQL 5.7 (root账号:root;密码5eNyjNf,成员账号:rageframe;密码:2589632147) [如何修改?](https://github.com/jianyan74/lnmp-dockerfiles/blob/master/docs/issue.md)
 - Nginx 1.12
 - Redis 3.2
 
@@ -16,10 +16,14 @@
 - redis 3.1.4
 - swoole 2.1
 
-### 建议先设置加速(重要)
+#### 建议先设置加速(重要)
 不然下载速度会卡的你怀疑人生
 
 [docker使用国内镜像](https://blog.csdn.net/yp090416/article/details/75107938)
+
+#### 常见问题
+
+https://github.com/jianyan74/lnmp-dockerfiles/blob/master/docs/issue.md
 
 ## 使用
 #### 1.安装Docker，Docker-compose  
@@ -33,7 +37,7 @@ sudo pip install -U docker-compose
 #### 2.下载lnmp-dockerfiles
 直接clone：
 ```
-git clone git@github.com:jianyan74/lnmp-dockerfiles.git
+git clone https://github.com/jianyan74/lnmp-dockerfiles.git
 ```
 
 #### 3.下载需要的拓展包
@@ -111,6 +115,12 @@ php ./yii migrate/up
 server_name [为你自己的域名]; 
 ```
 注意重启一下nginx容器才能生效
+
+### 问题反馈
+
+在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
+
+QQ群：[655084090](https://jq.qq.com/?_wv=1027&k=4BeVA2r)
 
 ## 引用
 
