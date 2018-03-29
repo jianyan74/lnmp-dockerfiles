@@ -14,22 +14,15 @@
 
 用到的PHP扩展
 - redis 3.1.4
-- swoole 2.1
-
-#### 建议先设置加速(重要)
-不然下载速度会卡的你怀疑人生
-
-[docker使用国内镜像](https://blog.csdn.net/yp090416/article/details/75107938)
-
-#### 常见问题
-
-https://github.com/jianyan74/lnmp-dockerfiles/blob/master/docs/issue.md
+- swoole later
 
 ## 使用
 #### 1.安装Docker，Docker-compose  
 - Docker，详见官方文档：https://docs.docker.com/engine/installation/linux/docker-ce/centos/
 - docker-compose，文档：https://docs.docker.com/compose/install/
-
+- 镜像加速，参考[docker使用国内镜像](https://github.com/yeasy/docker_practice/blob/master/install/mirror.md)
+       不然下载镜像速度会卡的你怀疑人生
+- 常见问题，必看。参考[这里](https://github.com/jianyan74/lnmp-dockerfiles/blob/master/docs/issue.md)
 ```
 sudo pip install -U docker-compose
 ```
@@ -38,13 +31,12 @@ sudo pip install -U docker-compose
 直接clone：
 ```
 git clone https://github.com/jianyan74/lnmp-dockerfiles.git
+cd lnmp-dockerfiles/services
 ```
 
 #### 3.下载需要的拓展包
 先下载好要使用的拓展包，如果编译出错要多次构建容器就可以省掉下载时间。
 ```
-cd lnmp-dockerfiles/services
-
 wget https://pecl.php.net/get/redis-3.1.6.tgz -O php/pkg/redis.tgz  
 ```
 
@@ -70,45 +62,34 @@ docker-compose down
 
 #### 5. Demo站点搭建
 
-1、进入app目录并克隆
+进入app目录并克隆
 
 ```
 
 cd ../app && git clone https://git.oschina.net/jianyan94/rageframe.git
-```
-
-2、进入目录
-
-```
 cd rageframe
-```
-
-3、安装依赖
-
-```
 composer install
 ```
-如果没有设置`composer`全局 也可直接输入 `php composer.phar install`
 
-4、初始化项目
+初始化项目
 
 ```
 php init //然后输入0回车,再输入yes回车，注意如果想修改应用入口请先看入口修改文档
 ```
 
-5、配置数据库信息
+配置数据库信息
 
 ```
 找到 common/config/main-local.php 并配置相应的信息
 ```
 
-6、安装数据库
+安装数据库
 
 ```
 php ./yii migrate/up
 ```
 
-7、域名解析
+域名解析
 
 找到 `services/nginx/conf.d` 下的 demo.website.cnf 里修改第三行server_name
 ```
@@ -116,7 +97,7 @@ server_name [为你自己的域名];
 ```
 注意重启一下nginx容器才能生效
 
-### 问题反馈
+## 问题反馈
 
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
 
@@ -124,7 +105,7 @@ QQ群：[655084090](https://jq.qq.com/?_wv=1027&k=4BeVA2r)
 
 ## 引用
 
-zPhal-dockerfiles： https://github.com/ZpGuo/zPhal-dockerfiles
+[zPhal-dockerfiles](https://github.com/ZpGuo/zPhal-dockerfiles)
 
 ## 学习文档
 

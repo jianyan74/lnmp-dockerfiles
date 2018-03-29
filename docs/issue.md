@@ -1,11 +1,11 @@
-目录
+### 目录
 
 - 安装composer时候出现错误
 - 启动后出现类似的错误
 - 修改默认数据库账号密码
-- 数据库连接本地127.0.0.1连不上怎么办
+- 容器内数据库连接127.0.0.1连不上怎么办
 
-1、安装composer时候出现错误
+### 1、安装composer时候出现错误
 ```
 curl: (56) SSL read: error:00000000:lib(0):func(0):reason(0), errno 104
 ```
@@ -13,7 +13,7 @@ curl: (56) SSL read: error:00000000:lib(0):func(0):reason(0), errno 104
 
 > 网络请求问题，重新执行一下 `docker-compose up`
 
-2、启动后出现类似的错误
+### 2、启动后出现类似的错误
 ```
 Removing intermediate container d91a90bb00b5
  ---> 40e52ab712e3
@@ -38,7 +38,7 @@ ERROR: Encountered errors while bringing up the project.
 > 由于映射端口冲突导致的，修改 docker-composer.yml 文件里面对应的容器映射端口，比如 3306:3306 => 3307:3306
 
 
-3、修改默认数据库账号密码
+### 3、修改默认数据库账号密码
 
 解决方法
 
@@ -50,7 +50,7 @@ ERROR: Encountered errors while bringing up the project.
         MYSQL_PASSWORD: 2589632147
 ```
 
-4、数据库连接本地127.0.0.1连不上怎么办
+### 4、容器内数据库连接127.0.0.1连不上怎么办
 
 解决方法
 
