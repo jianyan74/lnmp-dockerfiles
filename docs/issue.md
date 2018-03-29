@@ -3,6 +3,7 @@
 - 安装composer时候出现错误
 - 启动后出现类似的错误
 - 修改默认数据库账号密码
+- 数据库连接本地127.0.0.1连不上怎么办
 
 1、安装composer时候出现错误
 ```
@@ -39,10 +40,30 @@ ERROR: Encountered errors while bringing up the project.
 
 3、修改默认数据库账号密码
 
+解决方法
+
 编辑 `services\docker-compose.yml`文件在46行左右修改初始密码
 ```
         MYSQL_ROOT_PASSWORD: 5eNyjNf # root密码 自行修改
         MYSQL_DATABASE: rageframe # 数据库名
         MYSQL_USER: rageframe
         MYSQL_PASSWORD: 2589632147
+```
+
+4、数据库连接本地127.0.0.1连不上怎么办
+
+解决方法
+
+> 使用显示所有容器IP地址
+
+```
+docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+```
+会输出如下类似的，可以看出mysql地址为172.21.0.2，redis地址为172.21.0.3
+```
+/services_nginx_1 - 172.21.0.5
+/services_php-fpm_1 - 172.21.0.4
+/services_mysql-db_1 - 172.21.0.2
+/services_redis-db_1 - 172.21.0.3
+/priceless_ptolemy - 
 ```
