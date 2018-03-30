@@ -64,6 +64,10 @@ services:
 
   mongo-db:
     build: ./mongo
+    volumes:
+      - ../data/mongodb:/var/lib/mongodb:rw
+      - ../logs/mongodb:/var/log/mongodb/:rw
+      - ./mongo/mongod.conf:/etc/mongod.conf:ro
     ports:
         - "27017:27017"
 

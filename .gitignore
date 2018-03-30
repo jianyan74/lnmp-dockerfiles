@@ -4,12 +4,14 @@
 /data/redis/
 /data/backup/
 /data/mysql/
+/data/mongodb/
 !/data/backup/README.txt
 !/data/mysql/README.txt
 /logs/mysql/*.log
 /logs/nginx/*.log
 /logs/php-fpm/*.log
 /logs/redis/*.log
+/logs/mongodb/*.log
 
 !/data/backup/*.sql
 !/data/redis/README.txt

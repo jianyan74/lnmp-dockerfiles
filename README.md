@@ -117,6 +117,7 @@ QQ群：[655084090](https://jq.qq.com/?_wv=1027&k=4BeVA2r)
 [zPhal-dockerfiles](https://github.com/ZpGuo/zPhal-dockerfiles)
 
 ## 学习文档
+[Docker 配置详解](https://www.jianshu.com/p/2217cfed29d7)
 
 [Docker 入门教程](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
 
