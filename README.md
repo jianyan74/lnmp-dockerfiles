@@ -19,9 +19,9 @@
 用到的PHP扩展
 - redis 3.1.4
 - swoole latest
-- memcached 3.0.4 (完全版)
+- memcached 3.0.4
 
-> 注意:标注完全版的，通过docker-composer.full文件才能安装
+> 注意:标注完全版的，通过docker-compose.yml.full文件才能安装
 
 ## 使用
 #### 1.安装Docker，Docker-compose  
