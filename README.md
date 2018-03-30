@@ -11,10 +11,17 @@
 - MySQL 5.7 (root账号:root;密码5eNyjNf,成员账号:rageframe;密码:2589632147) [如何修改?](https://github.com/jianyan74/lnmp-dockerfiles/blob/master/docs/issue.md)
 - Nginx 1.12
 - Redis 3.2
+- Mongo 3.6 (完全版)
+- Elasticsearch latest (完全版)
+- Rabbitmq latest (完全版)
+- Memcached 1.5 (完全版)
 
 用到的PHP扩展
 - redis 3.1.4
-- swoole later
+- swoole latest
+- memcached 3.0.4 (完全版)
+
+> 注意:标注完全版的，通过docker-composer.full文件才能安装
 
 ## 使用
 #### 1.安装Docker，Docker-compose  
@@ -38,6 +45,8 @@ cd lnmp-dockerfiles/services
 先下载好要使用的拓展包，如果编译出错要多次构建容器就可以省掉下载时间。
 ```
 wget https://pecl.php.net/get/redis-3.1.6.tgz -O php/pkg/redis.tgz  
+wget https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz -O php/pkg/libmemcached.tar.gz  
+wget https://pecl.php.net/get/memcached-3.0.4.tgz -O php/pkg/memcached.tgz  
 ```
 
 #### 4.docker-compose构建项目
