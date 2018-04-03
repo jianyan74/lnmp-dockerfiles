@@ -10,18 +10,36 @@
 - PHP 7.2
 - MySQL 5.7 (root账号:root;密码5eNyjNf,成员账号:rageframe;密码:2589632147) [如何修改?](https://github.com/jianyan74/lnmp-dockerfiles/blob/master/docs/issue.md)
 - Nginx 1.12
-- Redis 3.2
+- Redis 4.0
 - Mongo 3.6 (完全版)
 - Elasticsearch latest (完全版)
 - Rabbitmq latest (完全版)
 - Memcached 1.5 (完全版)
 
 用到的PHP扩展
-- redis 3.1.4
+- redis 4.0.0
 - swoole latest
 - memcached 3.0.4
 
-> 注意:标注完全版的，通过docker-compose.yml.full文件才能安装
+> 注意:标注完全版的，通过切换full分支获得文件才能安装
+
+#### 目录
+
+目录 | 说明
+---|---
+--- app | 应用安装目录
+--- data | mongo、mysql数据库文件存储
+--- docs | 帮助文档
+--- logs | nginx、mongo、mysql、php日志
+--- sercices | 服务软件配置包
+--- --- memcached | memcached配置及安装文件
+--- --- mongo | memcached配置及安装文件
+--- --- mysql | mysql配置及安装文件
+--- --- nginx | nginx配置及安装文件
+--- --- php | php配置及安装文件
+--- --- redis | redis配置及安装文件
+--- --- docker-composer.yml | docker配置执行文件
+
 
 ## 使用
 #### 1.安装Docker，Docker-compose  
@@ -38,13 +56,14 @@ sudo pip install -U docker-compose
 直接clone：
 ```
 git clone https://github.com/jianyan74/lnmp-dockerfiles.git
+# 如果需要完整版再执行 git checkout full
 cd lnmp-dockerfiles/services
 ```
 
 #### 3.下载需要的拓展包
 先下载好要使用的拓展包，如果编译出错要多次构建容器就可以省掉下载时间。
 ```
-wget https://pecl.php.net/get/redis-3.1.6.tgz -O php/pkg/redis.tgz  
+wget https://pecl.php.net/get/redis-4.0.0.tgz -O php/pkg/redis.tgz  
 wget https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz -O php/pkg/libmemcached.tar.gz  
 wget https://pecl.php.net/get/memcached-3.0.4.tgz -O php/pkg/memcached.tgz  
 ```
