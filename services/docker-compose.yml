@@ -56,7 +56,9 @@ services:
       ports:
         - "6379:6379"
       volumes:
-        - ../data/redis:/data
+        - ./redis/redis.conf:/etc/redis/redis.conf:rw
+        - ../data/redis:/data:rw
+        - ../logs/redis:/var/log/:rw
       restart: always
 
   memcached:

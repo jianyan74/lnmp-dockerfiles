@@ -57,6 +57,7 @@ sudo pip install -U docker-compose
 ```
 git clone https://github.com/jianyan74/lnmp-dockerfiles.git
 # 如果需要完整版再执行 git checkout full
+chmod -R 777 ./lnmp-dockerfiles/logs
 cd lnmp-dockerfiles/services
 ```
 
