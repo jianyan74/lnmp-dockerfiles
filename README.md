@@ -100,7 +100,7 @@ cd rageframe
 composer install
 ```
 
-初始化项目
+初始化项目(注意:以下关于用到php的最好都进入php容器内去执行，避免php版本对不上)
 
 ```
 php init //然后输入0回车,再输入yes回车，注意如果想修改应用入口请先看入口修改文档
