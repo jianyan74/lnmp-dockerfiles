@@ -3,7 +3,8 @@
 - 安装composer时候出现错误
 - 启动后出现类似的错误
 - 修改默认数据库账号密码
-- 容器内数据库连接127.0.0.1连不上怎么办
+- 容器内数据库或者Redis连接127.0.0.1连不上怎么办
+
 
 ### 1、安装composer时候出现错误
 ```
@@ -50,11 +51,11 @@ ERROR: Encountered errors while bringing up the project.
         MYSQL_PASSWORD: 2589632147
 ```
 
-### 4、容器内数据库连接127.0.0.1连不上怎么办
+### 4、容器内数据库或者Redis连接127.0.0.1连不上怎么办
 
 解决方法
 
-> 使用显示所有容器IP地址
+> 显示所有容器IP地址
 
 ```
 docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
@@ -66,4 +67,19 @@ docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAdd
 /services_mysql-db_1 - 172.21.0.2
 /services_redis-db_1 - 172.21.0.3
 /priceless_ptolemy - 
+```
+
+然后修改为配置内的ip地址为上述的ip
+
+#### 如果改完了redis地址还是报错怎么办
+
+找到`/sercives/redis/redis.conf`大概在69行附近，把绑定地址改成上述的ip，然后在service目录下执行以下代码
+
+```
+// 进入redis容器
+docker-compose exec redis-db bash
+
+// 重新载入配置，同理以后要更改redis.conf都要执行这2行代码
+/usr/local/bin/redis-server /etc/redis/redis.conf
+
 ```

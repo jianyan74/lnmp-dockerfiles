@@ -7,7 +7,10 @@ services:
     links:
       - mysql-db:mysql-db
       - redis-db:redis-db
+      - mongo-db:mongo-db
       - memcached:memcached
+      - elasticsearch:elasticsearch
+      - rabbitmq:rabbitmq
     volumes:
       - ../app:/data/www:rw
       - ./php/php.ini:/usr/local/etc/php/php.ini:ro # 当前php配置文件；可以拷贝修改php-dev.ini为想要的配置
@@ -61,7 +64,28 @@ services:
         - ../logs/redis:/var/log/:rw
       restart: always
 
+  mongo-db:
+    build: ./mongo
+    volumes:
+      - ../data/mongodb:/var/lib/mongodb:rw
+      - ../logs/mongodb:/var/log/mongodb/:rw
+      - ./mongo/mongod.conf:/etc/mongod.conf:ro
+    ports:
+        - "27017:27017"
+
   memcached:
       build: ./memcached
       ports:
         - "11211:11211"
+
+  elasticsearch:
+    image: elasticsearch
+    ports:
+        - "9100:9100"
+        - "9200:9200"
+
+  rabbitmq:
+    image: rabbitmq:3.6.1-management
+    ports:
+        - "15672:15672"
+        - "5672:5672"
