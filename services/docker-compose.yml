@@ -60,8 +60,3 @@ services:
         - ../data/redis:/data:rw
         - ../logs/redis:/var/log/:rw
       restart: always
-
-  memcached:
-      build: ./memcached
-      ports:
-        - "11211:11211"

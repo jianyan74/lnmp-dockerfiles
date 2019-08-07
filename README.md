@@ -19,7 +19,6 @@
 用到的PHP扩展
 - redis 4.0.0
 - swoole latest
-- memcached 3.0.4
 
 > 注意:标注完全版的，通过切换full分支获得文件才能安装
 
@@ -32,7 +31,6 @@
 --- docs | 帮助文档
 --- logs | nginx、mongo、mysql、php日志
 --- sercices | 服务软件配置包
---- --- memcached | memcached配置及安装文件
 --- --- mongo | memcached配置及安装文件
 --- --- mysql | mysql配置及安装文件
 --- --- nginx | nginx配置及安装文件
@@ -65,8 +63,6 @@ cd lnmp-dockerfiles/services
 先下载好要使用的拓展包，如果编译出错要多次构建容器就可以省掉下载时间。
 ```
 wget https://pecl.php.net/get/redis-4.0.0.tgz -O php/pkg/redis.tgz  
-wget https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz -O php/pkg/libmemcached.tar.gz  
-wget https://pecl.php.net/get/memcached-3.0.4.tgz -O php/pkg/memcached.tgz  
 ```
 
 #### 4.docker-compose构建项目

@@ -31,20 +31,6 @@ COPY ./pkg/memcached.tgz /home/memcached.tgz
 # 安装 PECL 拓展，这里我们安装的是Redis
 RUN pecl install /home/redis.tgz && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
 
-# 安装libmemcached
-RUN tar zxvf /home/libmemcached.tar.gz \
-    && cd libmemcached-1.0.18 \
-    && ./configure --prefix=/usr/local/libmemcached --with-memcached \
-    && make && make install
-
-# 安装memcached
-RUN tar zxvf /home/memcached.tgz \
-    && cd memcached-3.0.4 \
-    && phpize \
-    && ./configure -enable-memcached -with-php-config=/usr/local/bin/php-config -with-zlib-dir -with-libmemcached-dir=/usr/local/libmemcached -prefix=/usr/local/phpmemcached -disable-memcached-sasl \
-    && make && make install \
-    && echo "extension=memcached.so" > /usr/local/etc/php/conf.d/memcached.ini
-
 # 安装 Swoole
 RUN cd /home \
     && git clone https://gitee.com/swoole/swoole.git \
