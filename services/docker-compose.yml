@@ -7,7 +7,6 @@ services:
     links:
       - mysql-db:mysql-db
       - redis-db:redis-db
-      - memcached:memcached
     volumes:
       - ../app:/data/www:rw
       - ./php/php.ini:/usr/local/etc/php/php.ini:ro # 当前php配置文件；可以拷贝修改php-dev.ini为想要的配置
