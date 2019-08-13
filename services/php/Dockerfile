@@ -25,8 +25,6 @@ RUN apt-get update && apt-get install -y \
 
 # 将预先下载好的拓展包从宿主机拷贝进去
 COPY ./pkg/redis.tgz /home/redis.tgz
-COPY ./pkg/libmemcached.tar.gz /home/libmemcached.tar.gz
-COPY ./pkg/memcached.tgz /home/memcached.tgz
 
 # 安装 PECL 拓展，这里我们安装的是Redis
 RUN pecl install /home/redis.tgz && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
@@ -48,8 +46,6 @@ ENV PATH $COMPOSER_HOME/vendor/bin:$PATH
 
 # 删除扩展包
 RUN rm -f /home/redis.tgz
-RUN rm -f /home/libmemcached.tar.gz
-RUN rm -f /home/memcached.tgz
 
 WORKDIR /data
 
