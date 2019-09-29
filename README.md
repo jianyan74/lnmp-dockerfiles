@@ -2,6 +2,8 @@
 
 搭建lnmp环境
 
+> 目前该版本不再维护，已有新项目代替，项目地址：https://github.com/jianyan74/dockerfiles
+
 ## 简介
 用docker容器服务的方式搭建lnmp环境，易于维护、升级。使用前需了解Docker的基本概念，常用基本命令。
 可以一条条命令执行docker命令来构建镜像，容器。这里推荐使用docker-compose来管理，执行项目，下面是使用流程。
